@@ -16,5 +16,4 @@ public class A_변수퀴즈 {
     System.out.println(a);
     System.out.println(b);
   }
-
 }
