@@ -12,6 +12,7 @@ public class A_변수퀴즈 {
     b = temp;
 
     /// //////////////////
+
     System.out.println(a);
     System.out.println(b);
   }

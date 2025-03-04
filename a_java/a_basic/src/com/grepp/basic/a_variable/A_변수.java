@@ -86,5 +86,6 @@ public class A_변수 {
         System.out.println(z);
 
 
+
     }
 }
