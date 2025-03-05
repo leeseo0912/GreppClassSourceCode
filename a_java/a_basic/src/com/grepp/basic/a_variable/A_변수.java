@@ -1,3 +1,4 @@
+// 2025.03.04(화)
 package com.grepp.basic.a_variable;
 
 public class A_변수 {
