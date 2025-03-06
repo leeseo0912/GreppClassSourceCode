@@ -1,3 +1,5 @@
+// 2025.03.05(수)
+// 2025.03.06(목)
 package com.grepp.basic.d_control;
 
 import java.util.Scanner;
@@ -19,25 +21,26 @@ public class z_quiz {
     System.out.print("2P : ");
     String p2 = sc.next();
 
-    String result = "";
-    String a = "가위", b = "바위", c = "보";
 
-    if (p1.equals(a)) { // p1 가위
-      if (p2.equals(a)) result = "비김";
-      if (p2.equals(b)) result = "패배";
-      if (p2.equals(c)) result = "승";
-    } else if (p1.equals(b)) { // p1 바위
-      if (p2.equals(a)) result = "승";
-      if (p2.equals(b)) result = "비김";
-      if (p2.equals(c)) result = "패배";
-    } else if (p1.equals(c)) { // p1 보
-      if (p2.equals(a)) result = "패배";
-      if (p2.equals(b)) result = "승";
-      if (p2.equals(c)) result = "비김";
+    if (p1.equals(p2)){
+      System.out.println("비겼습니다.");
+      return;
     }
 
-    System.out.println("결과 : " + result);
+    String result = winOrLose(p1, p2);
+    System.out.println(result);
+  }
 
+  private static String winOrLose(String p1, String p2) {
+    if(p1.equals("가위") && p2.equals("보")){
+      return "이겼습니다.";
+    }else if(p1.equals("바위") && p2.equals("가위")){
+      return "이겼습니다.";
+    }else if (p1.equals("보") && p2.equals("바위")) {
+      return "이겼습니다.";
+    }else {
+      return "졌습니다.";
+    }
   }
 }
 
