@@ -20,7 +20,7 @@ public class A_변수 {
         // type 변수명 ex) int i;
 
         // NOTE AA04 변수 명명 규칙 : Lower Camel Case
-        // Camel Case : 단어를 연결할 떄 각 단어의 첫 글자를 대문자로 표기 ex) book + amount = bookAmount
+        // Camel Case : 단어를 연결할 때 각 단어의 첫 글자를 대문자로 표기 ex) book + amount = bookAmount
         // Lower Camel Case : 첫 글자를 소문자로 시작 ex) book + amount = bookAmount -> 변수
         // Upper Camel Case : 첫 글자를 대문자로 시작 ex) book + amount = BookAmount -> 파일
 
