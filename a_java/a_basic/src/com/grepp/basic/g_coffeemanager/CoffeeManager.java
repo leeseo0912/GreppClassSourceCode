@@ -1,5 +1,5 @@
 // 2025.03.06(목)
-package com.grepp.basic.f_coffeemanager;
+package com.grepp.basic.g_coffeemanager;
 
 import java.util.Scanner;
 
@@ -12,12 +12,15 @@ public class CoffeeManager {
   private static void app() {
     Scanner sc = new Scanner(System.in);
 
-    String[] names = {"americano", "mocha", "lattee"};
-    int[] prices ={1000,2000,3000};
-    int[] costs = {500, 1000, 1500};
-    int[] stocks = {10, 10, 10};
-    int[] safetyStocks = {3, 3, 3};
-    int[] salesCnt = {0, 0, 0};
+    Coffee americano = new Coffee("americano", 1000,500, 10, 3, 0);
+    Coffee mocha = new Coffee("mocha", 2000,1000, 10, 3, 0);
+    Coffee latte = new Coffee("latte", 3000,1500, 10, 3, 0);
+    Coffee jetti = new Coffee("jetti", 4000,2000, 10, 3, 0);
+
+    // Coffee -> 참조형 타입
+    Coffee[] coffees = {americano, mocha, latte, jetti};
+
+
 
     int balance = 100000;   // 잔고
     int expensesAmount = 0; // 매출
@@ -43,8 +46,8 @@ public class CoffeeManager {
 
       if (menu == 1) {
         System.out.println("\n=== list ===\n");
-        for (int i = 0; i < names.length; i++) {
-          System.out.println(names[i] + "(" + i + ")");
+        for (int i = 0; i < coffees.length; i++) {
+          System.out.println(coffees[i].name + "(" + i + ")");
         }
 
         System.out.print("판매상품코드: ");
@@ -52,25 +55,27 @@ public class CoffeeManager {
         System.out.print("판매량: ");
         int orderCnt = sc.nextInt();
 
-        if(code < 0 || code >= names.length){
+        if(code < 0 || code >= coffees.length){
           System.out.println("잘못된 음료 코드입니다.");
           continue;
         }
 
-        if (orderCnt <= stocks[code]) {
+        Coffee coffee = coffees[code];
+
+        if (orderCnt <= coffee.stock) {
           // 판매
           // 재고 반영
-          stocks[code] -= orderCnt;
+          coffee.stock -= orderCnt;
           // 판매량 반영
-          salesCnt[code] += orderCnt;
+          coffee.salesCnt += orderCnt;
           // 잔고 반영
-          balance += prices[code] * orderCnt;
+          balance += coffee.price * orderCnt;
           // 매출 반영
-          salesAmount += prices[code] * orderCnt;
+          salesAmount += coffee.price * orderCnt;
         } else {
           // 매입
           // 매입금액 산정
-          int purchasePrice = prices[code] * orderCnt;
+          int purchasePrice = coffee.price * orderCnt;
 
           if (purchasePrice > balance) {
             System.out.println(" system: 주문을 취소합니다.");
@@ -78,33 +83,33 @@ public class CoffeeManager {
           }
 
           // 매입 + 판매
-          System.out.println("system: " + names[code] + " 재고 " + orderCnt + "개 확보합니다.");
+          System.out.println("system: " + coffee.name + " 재고 " + orderCnt + "개 확보합니다.");
           // 매입
           // 재고 반영
-          stocks[code] += orderCnt;
+          coffee.stock += orderCnt;
           // 잔고 반영
           balance -= purchasePrice;
           // 지출 반영
           expensesAmount += purchasePrice;
 
           // 판매
-          stocks[code] -= orderCnt;
+          coffee.stock -= orderCnt;
           // 판매량 반영
-         salesCnt[code] += orderCnt;
+          coffee.salesCnt += orderCnt;
           // 잔고 반영
-          balance += prices[code] * orderCnt;
+          balance += coffee.price * orderCnt;
           // 매출 반영
-          salesAmount += prices[code] * orderCnt;
+          salesAmount += coffee.price * orderCnt;
         }
 
         // 안전재고 기준선 확인
-        if (stocks[code] <= safetyStocks[code]) {
+        if (coffee.stock <= coffee.safetyStock) {
           // 매입금액 산정
-          int purchasePrice = safetyStocks[code] * 2 * costs[code];
+          int purchasePrice = coffee.safetyStock * 2 * coffee.cost;
           if (balance >= purchasePrice) {
             // 매입
             // 재고 반영
-            stocks[code] += safetyStocks[code] * 2;
+            coffee.stock += coffee.safetyStock * 2;
             // 잔고 반영
             balance -= purchasePrice;
             // 지출 반영
@@ -115,21 +120,23 @@ public class CoffeeManager {
           }
         }
 
-        System.out.println("\n 제품명 : " + names[code]
-          + " \n 판매가 : " + prices[code]
+        System.out.println("\n 제품명 : " + coffee.name
+          + " \n 판매가 : " + coffee.price
           + " \n 판매수량 : " + orderCnt
-          + " \n 결재금액 : " + prices[code] * orderCnt
-          + " \n 남은 재고 : " + stocks[code]
+          + " \n 결재금액 : " + coffee.price * orderCnt
+          + " \n 남은 재고 : " + coffee.stock
           + " \n 잔고 : " + balance
           + " \n 매출 : " + salesAmount
           + " \n 지출 : " + expensesAmount
         );
 
       } else {
-        for (int i = 0; i < names.length; i++) {
-          System.out.printf("%-10s 재고(%3d) 판매량(%3d) \n", names[i], stocks[i],
-            salesCnt[i]);
+
+        for(Coffee coffee : coffees){
+          System.out.printf("%-10s 재고(%3d) 판매량(%3d) \n", coffee.name, coffee.stock,
+            coffee.salesCnt);
         }
+
         System.out.printf("잔고 : %4d | 매출 : %8d | 지출 : %8d \n", balance, salesAmount,
           expensesAmount);
       }

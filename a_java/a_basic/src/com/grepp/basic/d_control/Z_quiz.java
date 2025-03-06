@@ -4,7 +4,7 @@ package com.grepp.basic.d_control;
 
 import java.util.Scanner;
 
-public class z_quiz {
+public class Z_quiz {
 
   public static void main(String[] args) {
     quiz();
