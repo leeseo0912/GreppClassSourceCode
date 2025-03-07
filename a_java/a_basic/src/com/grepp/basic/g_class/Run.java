@@ -1,12 +1,28 @@
 // 2025.03.06(목)
+// 2025.03.07(금)
 package com.grepp.basic.g_class;
 
 public class Run {
 
   public static void main(String[] args) {
-    // 레퍼런스 타입 변수(변수 앞에 있는건 타입)
-    // 모든 참조형 타입의 데이터들 = 인스턴스
+    //init();
+    classMember();
+  }
 
+  private static void classMember() {
+    // type 에 속한다. -> 인스턴스를 생성하지 않고 타입정보만으로 사용할 수 있다.
+    System.out.println(Coffee.type);
+    //Coffee.info();
+
+    Coffee.type = 'F';
+    Coffee americano = new Coffee("아메리카노");
+    Coffee mocha = new Coffee("모카");
+
+    System.out.println(americano.type);
+    System.out.println(mocha.type);
+  }
+
+  private static void init() {
     Coffee coffee = new Coffee(
       "americano",
       1000,
@@ -14,14 +30,15 @@ public class Run {
       10,
       3,
       0,
-      'T',
       false
     );
 
-
+    System.out.println(coffee.name);
+    System.out.println(coffee.price);
     System.out.println(coffee.type);
 
-
+    coffee.type = 'Q';
+    System.out.println(coffee.type);
   }
 
 }
