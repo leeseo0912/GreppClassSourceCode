@@ -20,6 +20,7 @@ public class Run {
 
     System.out.println(americano.type);
     System.out.println(mocha.type);
+    mocha.info();
   }
 
   private static void init() {
