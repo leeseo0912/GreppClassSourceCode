@@ -6,6 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/a_java/b_oop/b_oop.iml" filepath="$PROJECT_DIR$/a_java/b_oop/b_oop.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/backend.iml" filepath="$PROJECT_DIR$/.idea/backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/a_java/bc_coffeemanager/bc_coffeemanager.iml" filepath="$PROJECT_DIR$/a_java/bc_coffeemanager/bc_coffeemanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/a_basic/a_basic.iml" filepath="$PROJECT_DIR$/a_basic/a_basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/a_java.iml" filepath="$PROJECT_DIR$/.idea/a_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/b_oop/b_oop.iml" filepath="$PROJECT_DIR$/b_oop/b_oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bc_coffeemanager/bc_coffeemanager.iml" filepath="$PROJECT_DIR$/bc_coffeemanager/bc_coffeemanager.iml" />
     </modules>
   </component>
 </project>
