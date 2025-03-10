@@ -60,6 +60,10 @@ public class A_object {
     // 1. 같은 값을 넣으면 언제나 같은 해시값을 반환해야 한다.
     // 2. 다른 값을 넣으면 언제나 다른 해시값을 반환해야 한다.
     // ex) SHA-256 해시함수 : 어떤 데이터를 256bit의 데이터로 변환하는 함수
+
+    // 같은 객체라면 언제나 같은 해시값을 가져야하기 때문에,
+    // 객체의 같음을 판단하는 equals가 override 되었다면, hashCode 함께 override 되어야 한다.
+
     @Override
     public int hashCode() {
         return Objects.hash(name, desc);
