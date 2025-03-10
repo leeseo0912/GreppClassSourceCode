@@ -1,3 +1,4 @@
+// 2025.03.07 (금)
 package com.grepp.oop.a_modifier;
 
 public class Run {
@@ -6,6 +7,5 @@ public class Run {
     A_modifier.publicMethod();
     A_modifier.protectedMethod();
     A_modifier.callPrivateMethod();
-    
   }
 }
