@@ -1,9 +1,11 @@
 package com.grepp.oop.d_inheriteance.c_after;
 
 public class Device {
-    private String brand;
-    private String name;
-    private int price;
+    // private는 상속되지 않는다.
+    // protected : 자식 클래스에서는 가능하되, 다른 클래스에서 접근 제한
+    protected String brand;
+    protected String name;
+    protected int price;
 
     public Device(String brand, String name, int price) {
         this.brand = brand;
