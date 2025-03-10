@@ -1,7 +1,9 @@
-// 2025. 03. 07(금)
+// 2025. 03. 10(월)
 package com.grepp.coffeemanager.domain.order;
 
 import com.grepp.coffeemanager.domain.coffee.Coffee;
+import com.grepp.coffeemanager.domain.coffee.SeasonCoffee;
+
 import java.time.LocalDateTime;
 public class Order {
   private String name;
@@ -16,6 +18,13 @@ public class Order {
     if(coffee.getStock() < orderCnt) {
       order.status = OrderStatus.FAIL_SEASON;
       return order;
+    }
+
+    if(coffee instanceof SeasonCoffee seasonCoffee){
+      if (seasonCoffee.notSeason()){
+        order.status = OrderStatus.FAIL_SEASON;
+        return order;
+      }
     }
 
     order.status = OrderStatus.OK;
