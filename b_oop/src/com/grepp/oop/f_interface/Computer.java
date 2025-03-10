@@ -2,7 +2,8 @@
 package com.grepp.oop.f_interface;
 
 public class Computer extends Device {
-    private String cpu;
+
+    protected String cpu;
 
     public Computer(String brand, String name, int price, String cpu) {
         super(brand, name, price);
@@ -13,11 +14,9 @@ public class Computer extends Device {
     public void on() {
         System.out.println("cpu : " + cpu);
         super.on();
-
     }
 
     public void cleanUp(){
         System.out.println("메모리 정리를 수행합니다.");
     }
-
 }
