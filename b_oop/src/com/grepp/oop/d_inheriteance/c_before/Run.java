@@ -26,6 +26,10 @@ public class Run {
                 52
         );
 
+        desktop.on();
+        smartPhone.on();
+        tv.on();
+
     }
 
 }

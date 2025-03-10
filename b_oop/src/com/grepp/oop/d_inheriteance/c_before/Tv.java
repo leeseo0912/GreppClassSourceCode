@@ -15,6 +15,11 @@ public class Tv {
         this.size = size;
     }
 
+    public void on(){
+        System.out.println(name + "켰습니다.");
+    }
+
+
     @Override
     public String toString() {
         return "Tv{" +
