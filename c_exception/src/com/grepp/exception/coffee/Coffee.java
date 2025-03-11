@@ -36,6 +36,7 @@ public class Coffee {
     private void purchase(){
         int delay = new Random().nextInt(5);
 
+        // 예외던지는건 모두 throw를 통해서 터트림. 선언부는 이런 에러다? 표시?
         try{
             if(delay > 0) {
                 throw new TimeOutRuntimeException("은행 서버와 연결되지 못했습니다.");
