@@ -8,7 +8,6 @@ package com.grepp.exception.custom;
 // Checked Exception
 public class TimeOutException extends Exception{
 
-
     public TimeOutException(String message) {
         super(message);
     }
