@@ -1,7 +1,12 @@
+// 2025.03.11 (화)
 package com.grepp.exception;
+import com.grepp.exception.custom.NotVaildException;
+import com.grepp.exception.custom.TimeOutException;
+
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.util.Random;
 import java.util.Scanner;
 
 // NOTE A01 Error와 예외
@@ -26,7 +31,7 @@ public class A_Exception {
         while(true){
             System.out.print("숫자 : ");
             int num = sc.nextInt();
-            int random = (int) (Math.random() * 4);
+            int random = new Random().nextInt(0,4); // 0~3 반환
 
             if(random == 0){
                 System.out.println("0이 나와서 다시 입력해주세요");
@@ -47,7 +52,7 @@ public class A_Exception {
     // finally : 예외 발생 여부와 상관없이 반드시 실행되어야 하는 코드 작성
     public void malformedURLEx(){
         try {
-            URL url = new URL("https://www.naver.com");
+            URI url = URI.create("https://www.naver.com");
             System.out.println("URL 객체 생성 성공!");
         }catch (Exception e){
             System.out.println("잘못 된 URL 입니다.");
@@ -65,4 +70,37 @@ public class A_Exception {
         URL url = new URL("https://www.naver.com");
         System.out.println("URL 객체 생성 성공!");
     }
+
+    // NOTE A04 throw
+    // throw : 예외를 발생시키는 예약어
+    public void throwTimeOutEx() throws TimeOutException {
+
+        while(true){
+            int delay = new Random().nextInt(5); // 1~4 기본이 1시작임
+            // 만약 지연시간이 3초 이상이면, 더 이상 기다릴 수 없다고 판단
+            // TimeOutException을 발생
+
+            if (delay > 3){
+                throw new TimeOutException("통신 연결시간이 4초이상 지났습니다.");
+            }
+            System.out.println("통신에 성공했습니다.");
+        }
+    }
+
+
+    public void throwNotVaildEx(int price){
+        if (price < 0){
+            throw new NotVaildException("가격은 0보다 작을 수 없습니다.");
+        }
+        System.out.println(price + "원 입니다.");
+    }
+
+
+
+
+
+
+
+
+
 }
