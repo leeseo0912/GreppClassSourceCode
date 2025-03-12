@@ -2,6 +2,8 @@
 package com.grepp.library.c_collection.b_list;
 
 import com.grepp.library.c_collection.b_list.grepp._ArrayList;
+import com.grepp.library.c_collection.b_list.grepp._LinkedList;
+import com.grepp.library.c_collection.b_list.grepp._List;
 import com.grepp.library.c_collection.z_domain.School;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,12 +16,30 @@ public class Run {
     // NOTE B01 : CRUD
     // 데이터를 조작하는 방법을 줄여서 말함
     // Create, Read, Update, Delete
-     pracAdd();
+    // pracAdd();
     // pracGet();
     // pracSet();
     // pracRemove();
     // pracSort();
-    // pracSortQuiz();
+     pracSortQuiz();
+    //pracIterable();
+    
+  }
+
+  private static void pracIterable() {
+    _List<Integer> list = new _LinkedList<>();
+    // list = new _ArrayList<>(); //arrayList로도 한 번 해보고 잘 되면 linkedList로 해보라고 주석 넣어주셨고
+    for (int i = 0; i<10; i++){
+      list.add(i);
+    }
+
+    for (int i = 0; i < 9; i++){
+      System.out.println(list.get(i));
+    }
+
+//    for (Integer i : list){ //아직 linkedList에서 iterator가 구현이 안 되어서 작동하지 않기에 주석
+//      System.out.println(i);
+//    }
   }
 
   private static void pracSortQuiz() {
@@ -54,11 +74,16 @@ public class Run {
   }
 
   private static void pracRemove() {
-    List<Integer> list = new ArrayList<>();
+    _LinkedList<Integer> list = new _LinkedList<>();
     for (int i = 0; i < 10; i++) {
       list.add(i);
     }
     System.out.println(list); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    list.remove(2);
+    for (int i = 0; i < 9; i++) {
+      System.out.println(list.get(i));;
+    }
+
 
     // list.remove(0);
     // System.out.println(list);
@@ -83,13 +108,13 @@ public class Run {
     School grepp = new School("그랩","삼성", 10);
     School semyoung = new School("세명초", "속초",1);
 
-    List<School> list = new ArrayList<>();
+    _LinkedList<School> list = new _LinkedList<>();
     list.add(seoul);
     list.add(yeonsae);
-    System.out.println(list);
+    System.out.println(list.get(0)); // 수정전
 
-    list.set(0, grepp);
-    System.out.println(list);
+    list.set(0, grepp); //수정후
+    System.out.println(list.get(0));
   }
 
   private static void pracGet() {
@@ -108,7 +133,7 @@ public class Run {
 
   // ArryList는 보통 List를 씀
   private static void pracAdd() {
-    _ArrayList<Integer> list = new  _ArrayList<>();
+    _ArrayList<Integer> list = new _ArrayList<>();
 
     for (int i = 0; i < 30; i++) {
       list.add(i);

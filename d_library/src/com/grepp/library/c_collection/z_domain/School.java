@@ -33,15 +33,20 @@ public class School implements Comparable<School> {
   // 우리가 정한 정렬기준은 Comparable 인터페이스의 compareTo 메서드를 통해 전달.
   @Override
   public int compareTo(School o) {
-    // 0. 학교레벨을 기준으로 내림차순 정렬
-    // return o.level - this.level;
+    // 0. 학교레벨을 기준으로 내림차순 정렬 // return o.level - this.level;
+
     // 1. 학교명으로 오름차순(a,b,c) 정렬될 수 있도록 기준을 변경
-    // return this.name.compareTo(o.name);
-    // 2. 학교레벨로 오름차순 정렬하되, 만약 레벨이 같다면 학교명으로 내림차순 정렬(ㅎ,ㅍ,ㅌ)
-    if(this.level == o.level){
+    int nameCompare = this.name.compareTo(o.name);
+    if (nameCompare != 0) {
+      return nameCompare;
+    }
+
+    // 2. 학교 레벨을 기준으로 오름차순 정렬(작은 값 → 큰 값)
+    if (!this.level.equals(o.level)) {
       return this.level - o.level;
     }
-    //return this.level - o.level;
-    return this.name.compareTo(o.name);
+
+    // 3. 레벨이 같다면 학교명을 기준으로 내림차순 정렬(ㅎ,ㅍ,ㅌ)
+    return o.name.compareTo(this.name);
   }
 }
