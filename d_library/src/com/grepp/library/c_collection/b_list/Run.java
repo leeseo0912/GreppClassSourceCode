@@ -115,7 +115,11 @@ public class Run {
       // System.out.println(list.add(i)); // Boolean 값
     }
 
-    System.out.println(list);
+    for (int i = 0; i < 30; i++) {
+      System.out.println(list.get(i) + " ");
+    }
+
+    System.out.println("=================");
   }
 
 }
