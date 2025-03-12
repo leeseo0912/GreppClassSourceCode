@@ -1,8 +1,9 @@
 // 2025.03.11 (화)
+// 2025.03.12 (수) - private -> protected로
 package com.grepp.library.c_collection.a_generic.domain;
 
 public class Computer extends Device{
-    private String cpu;
+    protected String cpu;
 
     public Computer(String name, String cpu) {
         super(name);

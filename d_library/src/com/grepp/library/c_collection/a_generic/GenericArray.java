@@ -1,4 +1,5 @@
 // 2025.03.11 (화)
+// 2025.03.12 (수)
 package com.grepp.library.c_collection.a_generic;
 
 import com.grepp.library.c_collection.a_generic.domain.Device;
@@ -21,6 +22,22 @@ public class GenericArray<E> {
     public GenericArray(int size) {
         this.size = size;
         elements = new Object[size];
+    }
+
+    // NOTE 02 제네릭 메서드
+    // 제네릭 배열 만들어서 쓸 용도 - static
+    public static <T> GenericArray<T> practiceGeneric(T a){
+        GenericArray<T> instance = new GenericArray<>(10);
+        instance.add(a);
+        return instance;
+    }
+
+    // NOTE 03 타입 한정 키워드 (T extends)
+    // T extends Device : Device 타입을 포함한 후손 타입
+    public static <T extends Device> GenericArray<T> practiceExtends(T e){
+        GenericArray<T> instance = new GenericArray<>(10);
+        instance.add(e);
+        return instance;
     }
 
     public int size(){

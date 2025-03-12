@@ -1,9 +1,10 @@
 // 2025.03.11 (화)
+// 2025.03.12 (수) - private -> protected로
 package com.grepp.library.c_collection.a_generic.domain;
 
 public class Device {
 
-    private  String name;
+    protected  String name;
 
     public Device(String name) {
         this.name = name;
