@@ -1,10 +1,12 @@
 // 2025.03.12 (수)
+// link 변수는 찾을 값 또는 현재 탐색 중인 노드
 package com.grepp.library.c_collection.b_list.grepp;
 
 import com.grepp.library.c_collection.z_domain.Node;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class _LinkedList<E> implements _List<E>{
-
+public class _LinkedList<E> implements _List<E>, Iterable<E> {
 
     private int pointer;
     private Node<E> head;
@@ -19,7 +21,6 @@ public class _LinkedList<E> implements _List<E>{
 
     public boolean add(E e){
       Node<E> current = new Node<>(e);
-
 
       if(pointer == 0){
         head = current;
@@ -83,4 +84,25 @@ public class _LinkedList<E> implements _List<E>{
       pointer--; //삭제했으니 포인터 하나 줄여줌
       return link.data(); // 삭제한 노드 저장
     }
+
+    @Override
+    public Iterator<E> iterator() {
+      return new Iterator<E>() {
+        private int pointer;
+
+        @Override
+        public boolean hasNext() {
+          return pointer < size();
+        }
+
+        @Override
+        public E next() {
+          if(pointer >= size()) throw new NoSuchElementException();
+          E e = get(pointer);
+          pointer++;
+          return e;
+        }
+      };
+    }
+
 }

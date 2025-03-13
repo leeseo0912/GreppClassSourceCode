@@ -21,25 +21,26 @@ public class Run {
     // pracSet();
     // pracRemove();
     // pracSort();
-     pracSortQuiz();
-    //pracIterable();
+    // pracSortQuiz();
+    pracIterable();
     
   }
 
   private static void pracIterable() {
-    _List<Integer> list = new _LinkedList<>();
-    // list = new _ArrayList<>(); //arrayList로도 한 번 해보고 잘 되면 linkedList로 해보라고 주석 넣어주셨고
+    _LinkedList<Integer> list = new _LinkedList<>();
+    //_List<Integer>  list = new _ArrayList<>();
+   //  list = new _ArrayList<>(); //arrayList로도 한 번 해보고 잘 되면 linkedList로 해보라고 주석 넣어주셨고
     for (int i = 0; i<10; i++){
       list.add(i);
     }
 
-    for (int i = 0; i < 9; i++){
-      System.out.println(list.get(i));
-    }
-
-//    for (Integer i : list){ //아직 linkedList에서 iterator가 구현이 안 되어서 작동하지 않기에 주석
-//      System.out.println(i);
+//    for (int i = 0; i < 9; i++){
+//      System.out.println(list.get(i));
 //    }
+
+    for (Integer i : list){ //아직 linkedList에서 iterator가 구현이 안 되어서 작동하지 않기에 주석
+      System.out.println(i);
+    }
   }
 
   private static void pracSortQuiz() {
