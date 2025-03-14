@@ -8,7 +8,7 @@ public class _Entry<K,V> {
   private K key;
   private V value;
 
-  public _Entry(K key, V value) {
+  _Entry(K key, V value) {
     this.key = key;
     this.value = value;
   }
@@ -40,6 +40,9 @@ public class _Entry<K,V> {
 
   @Override
   public String toString() {
-    return super.toString();
+    return "{" +
+        "key=" + key +
+        ", value=" + value +
+        '}';
   }
 }

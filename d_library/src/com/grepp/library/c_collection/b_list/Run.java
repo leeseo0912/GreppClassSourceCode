@@ -20,7 +20,7 @@ public class Run {
     // pracGet();
     // pracSet();
     // pracRemove();
-    // pracSort();
+     pracSort();
     // pracSortQuiz();
     // pracIterable();
     
@@ -71,7 +71,7 @@ public class Run {
 
     Collections.sort(nums); // 리턴 타입이 void -> 원본 배열에 영향을 줌
     System.out.println(nums);
-    Collections.sort(schools);
+    Collections.sort(schools, (a,b)-> a.getName().compareTo(b.getName()));
     System.out.println(schools);
   }
 
