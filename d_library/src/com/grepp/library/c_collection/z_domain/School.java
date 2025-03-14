@@ -1,6 +1,8 @@
 // 2025.03.12 (수)
 package com.grepp.library.c_collection.z_domain;
 
+import java.util.Objects;
+
 public class School implements Comparable<School> {
   private String name;
   private String address;
@@ -48,5 +50,23 @@ public class School implements Comparable<School> {
 
     // 3. 레벨이 같다면 학교명을 기준으로 내림차순 정렬(ㅎ,ㅍ,ㅌ)
     return o.name.compareTo(this.name);
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof School school)) {
+      return false;
+    }
+    return Objects.equals(name, school.name) && Objects.equals(address,
+        school.address) && Objects.equals(level, school.level);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, address, level);
+  }
+
+  public String getName() {
+    return this.name = name;
   }
 }

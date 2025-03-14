@@ -59,7 +59,7 @@ public class _LinkedList<E> implements _List<E>, Iterable<E> {
       }
 
       E modified = link.data(); // data 덮어쓰기
-      link.setDate(e);
+      link.setData(e);
       return modified;
     }
 
@@ -85,6 +85,17 @@ public class _LinkedList<E> implements _List<E>, Iterable<E> {
       return link.data(); // 삭제한 노드 저장
     }
 
+    // todo contains 메서드 구현
+    public boolean contains(E e){
+      Node<E> link = head;
+      while(link != null){
+        if(link.data().equals(e)){
+          return true;
+        }
+        link = link.next();
+      }
+      return false;
+    }
     @Override
     public Iterator<E> iterator() {
       return new Iterator<E>() {

@@ -1,6 +1,8 @@
 // 2025.03.10 (월)
 package com.grepp.oop.f_interface;
 
+import java.util.List;
+
 public class Run {
     public static void main(String[] args) {
         StarLink smartPhone = new SmartPhone(

@@ -22,12 +22,13 @@ public class Run {
     // pracRemove();
     // pracSort();
     // pracSortQuiz();
-    pracIterable();
+    // pracIterable();
     
   }
 
   private static void pracIterable() {
-    _LinkedList<Integer> list = new _LinkedList<>();
+    _List<Integer> list = new _LinkedList<>();
+    //_LinkedList<Integer> list = new _LinkedList<>();
     //_List<Integer>  list = new _ArrayList<>();
    //  list = new _ArrayList<>(); //arrayList로도 한 번 해보고 잘 되면 linkedList로 해보라고 주석 넣어주셨고
     for (int i = 0; i<10; i++){
