@@ -7,6 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,8 +19,21 @@ public class Run {
     //testFilter();
     //testMap();
     //testGroupBy();
-    testReduce();
+    //testReduce();
+    testForeach();
   }
+
+  private static Consumer<String> testForeach() {
+    List<Exam> exams = createList();
+    // NOTE fb01 : 람다 내부에서 지역변수를 사용할 수 없음
+    // 사용하려면 상수처럼 쓸 수 있도록 추가적인 조치가 필요함.
+    exams.forEach(System.out::println);
+    int num = 0;
+    Consumer<String> res = e -> System.out.println(e + ": " + num);
+    return res;
+  }
+
+  //람다 내부에서 지역변수의 변수 쓸 수 없음
 
   private static void testReduce() {
     List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
