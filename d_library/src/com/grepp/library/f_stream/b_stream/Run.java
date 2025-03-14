@@ -23,9 +23,7 @@ public class Run {
 
   private static void testReduce() {
     List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-    int sum = list.stream().reduce((a, b) -> {
-      return a + b;
-    }).orElse(0);
+    int sum = list.stream().reduce((a, b) -> a + b).orElse(0);
 
     System.out.println(sum);
     // practiceReduceToFilter(createList());
